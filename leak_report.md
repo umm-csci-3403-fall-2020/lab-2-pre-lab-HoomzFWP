@@ -1,3 +1,5 @@
 # Leak report
 
-_Use this document to describe whatever memory leaks you find in `clean_whitespace.c` and how you might fix them. You should also probably remove this explanatory text._
+_basically, whenever you call the `is_clean` method you get the memory leak since `is_clean`
+calls on the method `strip` that actually makes the allocation. I patched the leak by going 
+into `is_clean` and freeing up the allocation once cleaned allocation was used_
